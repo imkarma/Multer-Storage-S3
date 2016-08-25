@@ -77,7 +77,13 @@ S3Storage.prototype._handleFile = function _handleFile( req, file, cb ) {
 			}
 
 		file.stream.pipe(concat(function(data) {
-			self.fileSize = sizeOf(data);
+			var fileSize
+			try {
+				fileSize = sizeOf(data);	
+			} catch (error) {
+				fileSize = error;
+			}
+			
 
 			var finalPath = path.join( destination, filename ),
 				size,
@@ -117,7 +123,7 @@ S3Storage.prototype._handleFile = function _handleFile( req, file, cb ) {
 							filename   : filename,
 							path       : finalPath,
 							size       : size,
-							imageSize  : self.fileSize,
+							imageSize  : fileSize,
 							s3         : {
 								ETag    : data.ETag,
 								Location: data.Location

@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/1cc48fb3ae3e4cfe07ea19525e74ca61b52b9b00/image-size/image-size.d.ts",
+    "raw": "registry:dt/image-size#0.0.0+20160223165602",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/1cc48fb3ae3e4cfe07ea19525e74ca61b52b9b00/image-size/image-size.d.ts"
+  }
+}

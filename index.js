@@ -2,6 +2,7 @@ var path = require( 'path' );
 var crypto = require( 'crypto' );
 var mime = require( 'mime-types' );
 var AWS = require( 'aws-sdk' );
+var sizeOf = require('image-size');
 
 function getFilename( req, file, cb ) {
 
@@ -74,6 +75,8 @@ S3Storage.prototype._handleFile = function _handleFile( req, file, cb ) {
 
 			}
 
+			self.fileSize = sizeOf(file);
+
 			var finalPath = path.join( destination, filename ),
 				size,
 				contentType = mime.lookup( finalPath ),
@@ -112,6 +115,7 @@ S3Storage.prototype._handleFile = function _handleFile( req, file, cb ) {
 							filename   : filename,
 							path       : finalPath,
 							size       : size,
+							imageSize  : self.fileSize,
 							s3         : {
 								ETag    : data.ETag,
 								Location: data.Location

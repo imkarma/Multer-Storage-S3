@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "image-size": "registry:dt/image-size#0.0.0+20160223165602"
+  }
+}
